@@ -8,6 +8,7 @@ export default {
   // lets you organize them into sections and have unlisted pages.
   pages: [
       {name: "Page 1", path: "/page1"},
+      {name: "Page 2", path: "/page2"},
       {name: "Dashboard", path: "/example-dashboard"},
       {name: "Report", path: "/example-report"}
   ],

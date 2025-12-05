@@ -18,7 +18,7 @@ These questions shape not only personal financial health but broader social outc
 
 This dashboard transforms inaccessible, abstract economic data into powerful, relatable visual storytelling. Our analysis unfolds across three interconnected dashboards, each building upon the previous to reveal the full picture of urban livability in America:
 
-### Dashboard 1: The Official Story
+### Dashboard 1: 📊 The Official Story
 **What the statistics say.** This dashboard presents the baseline facts: federal and state minimum wage data, official cost-of-living statistics, and government-reported economic indicators. Here, we establish the foundation of what policymakers and official sources report about wages and living costs across America's largest cities.
 
 ### Dashboard 2: The Hidden Reality
