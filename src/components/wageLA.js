@@ -61,8 +61,12 @@ export function wageComparisonChart(data, {width}) {
     {label: "Minimum Wage", color: "#C62828", occupation: topOccupations[2]}
   ];
   
+  // Ensure x-axis includes all reference lines
+  const xMin = Math.min(minSalary, povertyWage, minimumWage) * 0.9;
+  const xMax = Math.max(maxSalary, livingWage) * 1.05;
+  
   return Plot.plot({
-    x: {label: "Annual Income ($)", grid: true},
+    x: {label: "Annual Income ($)", grid: true, domain: [xMin, xMax]},
     y: {label: "Occupation", domain: data.map(d => d.occupation)},
     marginLeft: 180,
     marginRight: 40,
