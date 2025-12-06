@@ -2,43 +2,49 @@
 title: Boom page 2
 ---
 
-# Toilet booooo 🚀
+# Microeconimc factors 🚀
 
-This page presents a visualization of minimum wage data across states and territories compared to the federal minimum wage from 2000-2024.
+We seek to visualize how typical salaries across major occupational categories compare to the living wage, poverty line, and minimum wage in three of the most economically significant and high-cost U.S. regions: Washington D.C., New York City, and Los Angeles. These urban centers are home to millions of workers, set trends for labor and policy, and are often used as testbeds for wage reforms. By focusing on households with 2 adults (1 working) and 2 children, we highlight how even relatively high-paying jobs can fall short of covering basic living costs—raising critical questions about wage adequacy, cost of living, and economic justice. All data in this section are based on the MIT living wage index, accessed from https://livingwage.mit.edu/
 
-## Minimum Wage Analysis
 
-<div style='max-width: 100%; margin: 0 auto;'>
-  <div class='tableauPlaceholder' id='viz1764792117272' style='position: relative'>
-  <noscript>
-    <a href='#'>
-      <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Li&#47;LivingWageGapVersion1&#47;MinimumWageofEachStateTerritoryvsFederalMinimumWagefrom2000-2024&#47;1_rss.png' style='border: none' />
-    </a>
-  </noscript>
-  <object class='tableauViz' style='display:none;'>
-    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-    <param name='embed_code_version' value='3' />
-    <param name='site_root' value='' />
-    <param name='name' value='LivingWageGapVersion1&#47;MinimumWageofEachStateTerritoryvsFederalMinimumWagefrom2000-2024' />
-    <param name='tabs' value='no' />
-    <param name='toolbar' value='yes' />
-    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Li&#47;LivingWageGapVersion1&#47;MinimumWageofEachStateTerritoryvsFederalMinimumWagefrom2000-2024&#47;1.png' />
-    <param name='animate_transition' value='yes' />
-    <param name='display_static_image' value='yes' />
-    <param name='display_spinner' value='yes' />
-    <param name='display_overlay' value='yes' />
-    <param name='display_count' value='yes' />
-    <param name='language' value='en-US' />
-  </object>
+## DC Living Wage vs Salaries (2 Adults, 2 Children)
+
+```js
+import {data, wageComparisonChart} from "./components/wageDC.js";
+```
+
+<div class="grid grid-cols-1">
+  <div class="card">
+    ${resize((width) => wageComparisonChart(data, {width}))}
+  </div>
 </div>
 
-<script type='text/javascript'>
-  var divElement = document.getElementById('viz1764792117272');
-  var vizElement = divElement.getElementsByTagName('object')[0];
-  vizElement.style.width = '100%';
-  vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-  var scriptElement = document.createElement('script');
-  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-  vizElement.parentNode.insertBefore(scriptElement, vizElement);
-</script>
+
+## LA Living Wage vs Salaries (2 Adults, 2 Children)
+
+```js
+import {data as laData, wageComparisonChart as laWageComparisonChart} from "./components/wageLA.js";
+```
+
+<div class="grid grid-cols-1">
+  <div class="card">
+    ${resize((width) => laWageComparisonChart(laData, {width}))}
+  </div>
 </div>
+
+
+## NYC Living Wage vs Salaries (2 Adults, 2 Children)
+
+```js
+import {data as nycData, wageComparisonChart as nycWageComparisonChart} from "./components/wageNYC.js";
+```
+
+<div class="grid grid-cols-1">
+  <div class="card">
+    ${resize((width) => nycWageComparisonChart(nycData, {width}))}
+  </div>
+</div>
+
+Across these three urban cities, we see that at for all occupations, the wage lies above the minimum wage line and pverty line, which is to be expected. By having a full-time job, one will officially not be considered to be in poverty. However, it is concerning to see that in these cities, the wages for the large majority of occupation categories, 64% in DC, 77% in LA, and an overwhelming 86% in NYC, lies below the MIT living wage line.
+
+"Computer & Mathematical", "Legal", and "Management" were the only three categories across these urban centers which provided a high enough wage for a "traditionally standard" or "nuclear" family of 4.
