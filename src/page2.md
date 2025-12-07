@@ -1,5 +1,5 @@
 ---
-title: Boom page 2
+title:  page 2
 ---
 
 # Microeconimc factors 🚀
@@ -9,20 +9,20 @@ While minimum wage trends show upward movement, understanding the true cost burd
 ## Cost of Living Breakdown
 
 <div style='max-width: 100%; margin: 0 auto;'>
-  <div class='tableauPlaceholder' id='viz1764963652547' style='position: relative'>
+  <div class='tableauPlaceholder' id='viz1765085017612' style='position: relative'>
     <noscript>
       <a href='#'>
-        <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Li&#47;LivingWageGapVersion1&#47;TotalCostofLivingPerStateSplitbyCostReasons&#47;1_rss.png' style='border: none' />
+        <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Li&#47;LivingWageGapVersion1&#47;Sheet6&#47;1_rss.png' style='border: none' />
       </a>
     </noscript>
     <object class='tableauViz' style='display:none;'>
       <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
       <param name='embed_code_version' value='3' />
       <param name='site_root' value='' />
-      <param name='name' value='LivingWageGapVersion1&#47;TotalCostofLivingPerStateSplitbyCostReasons' />
+      <param name='name' value='LivingWageGapVersion1&#47;Sheet6' />
       <param name='tabs' value='no' />
       <param name='toolbar' value='yes' />
-      <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Li&#47;LivingWageGapVersion1&#47;TotalCostofLivingPerStateSplitbyCostReasons&#47;1.png' />
+      <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Li&#47;LivingWageGapVersion1&#47;Sheet6&#47;1.png' />
       <param name='animate_transition' value='yes' />
       <param name='display_static_image' value='yes' />
       <param name='display_spinner' value='yes' />
@@ -33,7 +33,7 @@ While minimum wage trends show upward movement, understanding the true cost burd
   </div>
 
   <script type='text/javascript'>
-    var divElement = document.getElementById('viz1764963652547');
+    var divElement = document.getElementById('viz1765085017612');
     var vizElement = divElement.getElementsByTagName('object')[0];
     vizElement.style.width = '100%';
     vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
@@ -42,98 +42,291 @@ While minimum wage trends show upward movement, understanding the true cost burd
     vizElement.parentNode.insertBefore(scriptElement, vizElement);
   </script>
 </div>
-
-<br><br>
-This stacked bar chart reveals the composition of living costs across all 50 states, breaking down total expenses into five essential categories: housing, healthcare, food, transportation, and childcare. Each state's bar represents its total cost of living, with the colored segments showing the proportional contribution of each expense category. The visualization makes immediately clear that housing costs dominate the financial burden in most states, often comprising the largest segment of the bar, followed by healthcare and food costs. Transportation and childcare expenses, while significant, typically represent smaller but still substantial portions of the total. What becomes apparent is not just the absolute dollar amounts—which vary dramatically from state to state—but the structural composition of these costs: even in states with lower total expenses, the same fundamental categories consume workers' incomes, just at different scales. This breakdown sets the stage for understanding why minimum wage increases, while positive on paper, may still fall short when confronted with the multi-faceted reality of essential living expenses.
-
-Across these three urban cities, we see that at for all occupations, the wage lies above the minimum wage line and pverty line, which is to be expected. By having a full-time job, one will officially not be considered to be in poverty. However, it is concerning to see that in these cities, the wages for the large majority of occupation categories, 64% in DC, 77% in LA, and an overwhelming 86% in NYC, lies below the MIT living wage line.
-
-"Computer & Mathematical", "Legal", and "Management" were the only three categories across these urban centers which provided a high enough wage for a "traditionally standard" or "nuclear" family of 4.
+<br></br>
 
 ## Healthcare Price VS Median Household Income Over Time (Normalized)
 
 ```js
+
 import {csvParse} from "d3-dsv";
 
-// Load healthcare CPI data
+// ─────────────────────────────────────────────
+
+// LOAD & PROCESS — HEALTHCARE CPI
+
+// ─────────────────────────────────────────────
+
 const rawCpi = await FileAttachment("data/CPIMEDNS.csv").text();
+
 const cpiData = csvParse(rawCpi, d => ({
+
   date: new Date(d.observation_date),
+
   index: d.CPIMEDNS ? +d.CPIMEDNS : null
+
 })).filter(d => d.index !== null);
 
-// Get the value in January 1960 to use as rebasing baseline for healthcare CPI
-const baseValue = cpiData.find(d => d.date.getFullYear() === 1960 && d.date.getMonth() === 0)?.index ?? 1;
+// Rebase using 1960 = 100
 
-// Rebase healthcare CPI so 1960 = 100
-const rebasedCpiData = cpiData.map(d => ({
-  date: d.date,
-  index: (d.index / baseValue) * 100,
-  type: "Healthcare CPI"
+const baseCpi = cpiData.find(d => d.date.getFullYear()==1960)?.index ?? 1;
+
+const rebasedCpi = cpiData.map(d => ({
+
+  date:d.date,
+
+  index:(d.index/baseCpi)*100,
+
+  type:"Healthcare CPI"
+
 }));
 
-// Load median household income data
+// ─────────────────────────────────────────────
+
+// LOAD & PROCESS — MEDIAN HOUSEHOLD INCOME
+
+// ─────────────────────────────────────────────
+
 const rawIncome = await FileAttachment("data/MEHOINUSA646N.csv").text();
+
 const incomeData = csvParse(rawIncome, d => ({
-  date: new Date(d.observation_date),
-  income: d.MEHOINUSA646N ? +d.MEHOINUSA646N : null
-})).filter(d => d.income !== null);
 
-// Get the value in 1984 (first year) to use as rebasing baseline for income
-const baseIncome = incomeData[0]?.income ?? 1;
+  date:new Date(d.observation_date),
 
-// Rebase income so 1984 = 100
-const rebasedIncomeData = incomeData.map(d => ({
-  date: d.date,
-  index: (d.income / baseIncome) * 100,
-  type: "Median Household Income"
+  income:+d.MEHOINUSA646N
+
+})).filter(d=>d.income);
+
+const baseIncome = incomeData[0].income;
+
+const rebasedIncome = incomeData.map(d=>({
+
+  date:d.date,
+
+  index:(d.income/baseIncome)*100,
+
+  type:"Median Household Income"
+
 }));
-```
 
-```js
+// ─────────────────────────────────────────────
+
+// LOAD — TRANSPORTATION CPI (CUSR0000SAS4)
+
+// ─────────────────────────────────────────────
+
+const rawCUSR = await FileAttachment("data/CUSR0000SAS4.csv").text();
+
+const cusr = csvParse(rawCUSR, d => ({
+
+  date:new Date(d.observation_date),
+
+  value:+d.CUSR0000SAS4
+
+})).filter(d=>d.value);
+
+const baseCusr = cusr.find(d=>d.date.getFullYear()==1984)?.value ?? 1;
+
+const rebasedCusr = cusr.map(d=>({
+
+  date:d.date,
+
+  index:(d.value/baseCusr)*100,
+
+  type:"Transportation CPI"
+
+}));
+
+// ─────────────────────────────────────────────
+
+// LOAD — CHILDCARE & TUITION CPI (SEEB)
+
+// ─────────────────────────────────────────────
+
+const rawSEEB = await FileAttachment("data/CUUR0000SEEB.csv").text();
+
+const seeb = csvParse(rawSEEB, d => ({
+
+  date:new Date(d.observation_date),
+
+  value:+d.CUUR0000SEEB
+
+})).filter(d=>d.value);
+
+const baseSEEB = seeb.find(d=>d.date.getFullYear()==1984)?.value ?? 1;
+
+const rebasedSEEB = seeb.map(d=>({
+
+  date:d.date,
+
+  index:(d.value/baseSEEB)*100,
+
+  type:"Childcare and Tuition CPI"
+
+}));
+
+// ─────────────────────────────────────────────
+
+// FOOD COST CPI (CPIUFDSL)
+
+// ─────────────────────────────────────────────
+
+const rawFood = await FileAttachment("data/CPIUFDSL.csv").text();
+
+const food = csvParse(rawFood,d=>({
+
+  date:new Date(d.observation_date),
+
+  value:+d.CPIUFDSL
+
+})).filter(d=>d.value);
+
+const baseFood = food.find(d=>d.date.getFullYear()==1984)?.value ?? 1;
+
+const rebasedFood = food.map(d=>({
+
+  date:d.date,
+
+  index:(d.value/baseFood)*100,
+
+  type:"Food Cost CPI"
+
+}));
+
+// ─────────────────────────────────────────────
+
+// HOUSING CPI (CUUR0000SAH1)
+
+// ─────────────────────────────────────────────
+
+const rawHousing = await FileAttachment("data/CUUR0000SAH1.csv").text();
+
+const housing = csvParse(rawHousing,d=>({
+
+  date:new Date(d.observation_date),
+
+  value:+d.CUUR0000SAH1
+
+})).filter(d=>d.value);
+
+const baseHousing = housing.find(d=>d.date.getFullYear()==1984)?.value ?? 1;
+
+const rebasedHousing = housing.map(d=>({
+
+  date:d.date,
+
+  index:(d.value/baseHousing)*100,
+
+  type:"Housing Cost CPI"
+
+}));
+
+// ─────────────────────────────────────────────
+
+// MERGE INTO ONE ARRAY FOR PLOTTING
+
+// ─────────────────────────────────────────────
+
+const unifiedData = [
+
+  ...rebasedCpi,
+
+  ...rebasedIncome,
+
+  ...rebasedCusr,
+
+  ...rebasedSEEB,
+
+  ...rebasedFood,
+
+  ...rebasedHousing
+
+];
+
+// ─────────────────────────────────────────────
+
+// PLOT
+
+// ─────────────────────────────────────────────
+
 function healthcarePriceChart({width}) {
+
   const startDate = new Date("1984-01-01");
-  const cpiLine = rebasedCpiData.filter(d => 
-    d.index !== null && 
-    d.index !== undefined && 
-    d.date >= startDate
-  );
-  const incomeLine = rebasedIncomeData.filter(d => d.index !== null && d.index !== undefined);
   
-  // Get the max date for x-axis domain
-  const maxDate = new Date(Math.max(
-    ...cpiLine.map(d => d.date.getTime()),
-    ...incomeLine.map(d => d.date.getTime())
-  ));
-  
+  const filteredData = unifiedData.filter(d => d.date >= startDate);
+
   return Plot.plot({
-    y: {
-      label: "Index (Base Year = 100)",
-      grid: true
-    },
+
+    title:"Growth of Essential Living Costs Compared to Median Household Income (1984 = 100)",
+
+    y:{label:"Index (1984 = 100)",grid:true},
+
     x: {
       label: "Year",
-      domain: [startDate, maxDate]
+      domain: [startDate, new Date(Math.max(...filteredData.map(d => d.date.getTime())))]
     },
-    marks: [
-      Plot.line(cpiLine, {
-        x: "date",
-        y: "index",
-        stroke: "#C62828",
-        strokeWidth: 2,
-        tip: true
-      }),
-      Plot.line(incomeLine, {
-        x: "date",
-        y: "index",
-        stroke: "#2E7D32",
-        strokeWidth: 2,
-        tip: true
+
+    color:{
+
+      label:"Category",
+
+      legend:true,
+
+      domain:[
+
+        "Healthcare CPI",
+
+        "Childcare and Tuition CPI",
+
+        "Transportation CPI",
+
+        "Housing Cost CPI",
+
+        "Median Household Income",
+
+        "Food Cost CPI"],
+
+      range:[
+
+        "#C62828",
+
+        "#9C27B0",
+
+        "#1976D2",
+
+        "#795548",
+
+        "#2E7D32",
+
+        "#FF9800"
+
+      ]
+
+    },
+
+    marks:[
+
+      Plot.line(filteredData,{
+
+        x:"date",
+
+        y:"index",
+
+        stroke:"type",
+
+        strokeWidth:2,
+
+        tip:true
+
       })
+
     ],
+
     width,
-    height: 400
+
+    height:420
+
   });
+
 }
 ```
 

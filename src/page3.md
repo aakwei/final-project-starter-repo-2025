@@ -1,10 +1,16 @@
 ---
-title: Boom page 3
+title: page 3
 ---
 
 # Tell a story
 
 blah blah blah 
+
+<div class="grid grid-cols-1">
+  <div class="card">
+    <img src="data/temp2.png" style="width: 100%; height: auto; display: block;" alt="Analysis Visualization" />
+  </div>
+</div>
 
 ## LA County - Public Assistance by Employment Income
 

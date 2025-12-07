@@ -1,5 +1,5 @@
 ---
-title: Boom page 1
+title: page 1
 ---
 
 # 📊 The "Official" Story 
@@ -85,5 +85,13 @@ import {data as nycData, wageComparisonChart as nycWageComparisonChart} from "./
 <div class="grid grid-cols-1">
   <div class="card">
     ${resize((width) => nycWageComparisonChart(nycData, {width}))}
+  </div>
+</div>
+
+## Additional Analysis
+
+<div class="grid grid-cols-1">
+  <div class="card">
+    <img src="data/temp1.png" style="width: 100%; height: auto; display: block;" alt="Additional Analysis Visualization" />
   </div>
 </div>
