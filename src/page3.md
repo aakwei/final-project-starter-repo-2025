@@ -59,6 +59,8 @@ Instead of cluttered side-by-side bars across 50+ states, this visualization use
   </script>
 </div>
 
+This visualization demonstrates that the "real" poverty rate (Supplemental Poverty Measure) can be significantly different from the "official" poverty rate (Official Poverty Measure) depending on the state, with high-cost states like Florida, New Jersey, and the District of Columbia showing dramatically higher poverty rates when modern expenses are accounted for. The national averages reveal that SPM (10.75%) exceeds OPM (9.75%), proving that official measures systematically undercount economic hardship and that millions of Americans living in poverty are invisible to policymakers who rely solely on traditional poverty statistics.
+
 <br></br>
 
 ## Public Assistance by Employment Income
@@ -101,6 +103,10 @@ const {stackedData: nycStackedData} = processNYCPublicAssistanceData(rawNYC);
   </div>
 </div>
 
+These visualizations reveal a huge cliff in public assistance that creates a perverse disincentive for economic mobility. As families earn more income, they face sudden and dramatic losses in subsidies—particularly the Health Insurance Marketplace Subsidy, SNAP benefits, and Medicaid for Children—creating a situation where a small raise can result in a net financial loss. This is absolutely terrible: the current system effectively traps families at lower income levels, preventing them from pursuing better-paying opportunities because the immediate loss of benefits outweighs the potential gains from increased earnings. By shifting these rigid cutoff lines to smooth phase-outs that gradually taper benefits as income increases, we could actually encourage people to make more money instead of being stuck in a system that punishes upward mobility. Such reforms would align public assistance programs with the proven design of the Earned Income Tax Credit, creating a safety net that supports rather than hinders economic advancement.
+
+<br></br>
+
 ## Family Net Financial Resources by Employment Income
 
 **Family Net Financial Resources by Employment Income in NY county, LA county, and DC county**
@@ -140,5 +146,7 @@ const nycNetResourcesData = processNYCNetResourcesData(rawNYCNet);
     ${resize((width) => nycNetResourcesChart(nycNetResourcesData, {width}))}
   </div>
 </div>
+
+These visualizations expose the devastating plateau and cliff that define the current system: families experience an initial rise in net resources as income increases, followed by a dangerous plateau where financial gains stagnate despite continued income growth. The most egregious failure occurs at the cliff—a perverse economic trap where families earning around $40,000 actually have fewer net resources than those earning $70,000, creating a system that actively penalizes middle-income advancement. This is not a story about people unwilling to work hard or pursue better opportunities; this is a story about families trapped in a structural nightmare, living paycheck to paycheck, unable to afford the risk of earning more because the system will strip away their safety net faster than their income can grow. The absurdity of this design cannot be overstated: a system that caps mobility, punishes ambition, and forces working families to choose between financial stability and economic advancement is not a safety net—it is a cage that locks generations into cycles of economic precarity. To make all matters worse, households earning 100K+ still incur a perpetual deficit!
 
 The path forward requires recognizing that **recalculated standards** reveal a crisis far deeper than official measures suggest: poverty rates are systematically undercounted, the public assistance system creates structural traps that penalize upward mobility, and even six-figure incomes fail to provide financial solvency in high-cost urban areas. The visualizations demonstrate that solutions must address both the immediate gaps—replacing benefit cliffs with gradual phase-outs modeled after the Earned Income Tax Credit—and the fundamental misalignment between wages, benefits, and the true cost of living. By making the Urban Livability Gap tangible, accessible, and specific to their jurisdictions, we provide policymakers with the evidence needed to justify legislative action, design more equitable social policy, and address systemic urban inequality at scale, ensuring this project not only diagnoses problems but catalyzes solutions at every level.
