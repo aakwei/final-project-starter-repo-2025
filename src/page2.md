@@ -1,12 +1,18 @@
 ---
-title:  page 2
+title:  The Income Equation
 ---
 
-# Microeconimc factors 🚀
+# ⚖️ The Income Equation 
 
-While minimum wage trends show upward movement, understanding the true cost burden requires examining how essential expenses are distributed across different categories. The following visualization breaks down the total cost of living by state, revealing which factors—housing, healthcare, food, transportation, and childcare—contribute most significantly to the financial burden workers face.
+This dashboard examines the **microeconomic expenses** that further strain the cost of living for working-class families. While the previous dashboard revealed macroeconomic trends in wages and poverty measures, this analysis breaks down the individual contributors to an American's spending—housing, food, transportation, healthcare, childcare, and taxes—to identify which impose the most significant burdens. Through three interconnected visualizations, we trace how essential living costs have diverged from income growth over four decades, revealing the specific expense categories that are driving families into financial hardship and demonstrating why nominal price increases often mask the true erosion of purchasing power.
 
 ## Cost of Living Breakdown
+
+**Distribution of Living Cost Annually**
+
+In our dataset taken from the Economic Policy Institute, there are 7 listed factors that contribute to the cost of living: housing, food, child care, transportation, healthcare, taxes, and other necessities. These costs can vary from each state making it difficult to see which one of the seven are the main contributors to the cost of living. For this visualization, we decided to focus on six of the seven. We decided to plot the information out on a box-and-whiskers plot (aka a box plot) so that we can not only see if there are any skews in our dataset, but also to compare the spread and median costs of each factor. When we have our box plots side to side, we see that the median for all of the cost of living factors are in the center of the box, indicating that there is no noticeable skew in each factor.
+
+The position of each graph helped with the comparison between the cost of living factors. The multiple box plots rely on being compared to each other to best compare the median and range of datasets, especially when comparing the scale for each factor.
 
 <div style='max-width: 100%; margin: 0 auto;'>
   <div class='tableauPlaceholder' id='viz1765085017612' style='position: relative'>
@@ -42,9 +48,17 @@ While minimum wage trends show upward movement, understanding the true cost burd
     vizElement.parentNode.insertBefore(scriptElement, vizElement);
   </script>
 </div>
+
+This box-and-whiskers plot reveals the annual distribution of living costs across various categories, with **Childcare** and **Housing** showing the greatest variability and highest extreme costs—many outliers exceed $50,000 annually, indicating severe affordability challenges in high-cost areas. **Transportation** and **Healthcare** exhibit high median costs ($14,000-$15,000 and $13,000-$14,000 respectively) but with different patterns: Transportation has a tight, consistent distribution while Healthcare shows more variability with numerous high-cost outliers. **Food** and **Other Necessities** generally represent lower annual expenses ($7,000-$8,000 median) with less overall spread, though they still contribute significantly to the total cost burden when combined with the more expensive categories.
+
 <br></br>
 
-## Healthcare Price VS Median Household Income Over Time (Normalized)
+## Growth of Essential Living Costs Compared to Median Household Income
+
+**Growth of Essential Living Costs Compared to Median Household Income (1984 = 100)**
+
+Based on the cost of living breakdown in the first visualization, which identified the main expense categories, this chart compares how these essential costs have changed relative to median household income over time. All values are normalized to 1984 = 100, allowing direct comparison of growth rates across categories. The visualization reveals a troubling divergence: while median household income has grown steadily (shown in green), essential living costs have far outpaced it. Healthcare CPI (red) and Childcare and Tuition CPI (purple) show the steepest increases, rising dramatically above income growth. Housing and Transportation costs also exceed income growth, while Food Cost CPI remains relatively stable. This divergence shows that even as incomes rise, families are falling further behind in covering essential expenses, with healthcare and childcare creating the largest gaps.
+
 
 ```js
 
@@ -336,8 +350,15 @@ function healthcarePriceChart({width}) {
   </div>
 </div>
 
+By rebasing all values to 1984 = 100, the visualization creates a common baseline that allows direct comparison of growth rates across fundamentally different metrics (dollar amounts for income versus index values for CPI). This normalization technique eliminates scale differences and reveals the relative rate of change, making it immediately clear which costs are growing faster than income. Six colored lines track different categories over four decades, creating a visual narrative of divergence. The green income line serves as a reference baseline, while the other lines reveal which costs are outpacing income growth. The steep upward trajectories of healthcare and childcare lines create a visual "scissors effect" that immediately communicates the growing affordability crisis.
+
+<br></br>
 
 ## Big Mac Price Versus CPI Adjusted Price
+
+**Big Mac Price Versus CPI Adjusted Price (1986-2025)**
+
+From the above visualization, only Food CPI seems to grow slower than median household income, suggesting that food costs might be more manageable relative to other essential expenses. However, is food actually cheaper? We use the "Big Mac Index"—often mockingly deemed a "more accurate" indicator of inflation—to see if food costs are actually affordable. This visualization compares the nominal Big Mac price to its CPI-adjusted price over four decades, using the Big Mac as a proxy for purchasing power and inflation. The blue line shows the nominal price (actual dollars), while the green line shows the CPI-adjusted price (constant 1986 dollars). The divergence between the two lines shows whether Big Mac prices rose faster than general inflation. When the nominal line rises above the adjusted line, prices increase faster than the overall CPI, indicating a loss of purchasing power for this item. This demonstrates how nominal price increases can mask real economic changes: what looks like a price increase may actually be inflation, or it may exceed inflation, reducing real purchasing power.
 
 ```js
 import {csvParse} from "d3-dsv";
@@ -442,3 +463,7 @@ function bigMacPriceChart({width}) {
     ${resize((width) => bigMacPriceChart({width}))}
   </div>
 </div>
+
+The visualization clearly shows a growing divergence where the nominal Big Mac price has steadily increased over time, rising from around $1.60 in the late 1980s to over $5.00 by 2017, while its CPI-adjusted price has remained relatively stable, hovering between $1.50 and $2.00 throughout the same period. This trend indicates that the real cost of a Big Mac has risen faster than general inflation, leading to a loss of purchasing power for this staple item and demonstrating that even when official food cost indices appear manageable, actual food affordability has declined.
+
+The microeconomic analysis reveals that the income equation is fundamentally broken: essential living costs have systematically outpaced income growth, with healthcare and childcare creating the most severe affordability gaps. The box plot visualization establishes which expense categories contribute most significantly to the cost burden, while the time series analysis demonstrates how these costs have diverged from median household income over four decades. Even when Food CPI appears relatively stable compared to income growth, the Big Mac index reveals that even basic food items have become less affordable—linking back to this finding, everything is too expensive, especially our very favorite Big Mac, demonstrating that what appears to be economic progress may actually represent a decline in real economic security for working-class families.

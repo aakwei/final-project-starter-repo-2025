@@ -7,9 +7,9 @@ export default {
   // all pages will be listed in alphabetical order. Listing pages explicitly
   // lets you organize them into sections and have unlisted pages.
   pages: [
-      {name: "Page 1", path: "/page1"},
-      {name: "Page 2", path: "/page2"},
-      {name: "Page 3", path: "/page3"}
+      {name: "The Bigger Picture", path: "/page1"},
+      {name: "The Income Equation", path: "/page2"},
+      {name: "So What, or Do What", path: "/page3"}
   ],
 
   // Content to add to the head of the page, e.g. for a favicon:
