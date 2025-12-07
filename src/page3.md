@@ -6,7 +6,7 @@ title: Boom page 3
 
 blah blah blah 
 
-## Public Assistance by Employment Income
+## LA County - Public Assistance by Employment Income
 
 ```js
 import {csvParse} from "d3-dsv";
@@ -95,3 +95,96 @@ function stackedBarChart({width}) {
   </div>
 </div>
 
+## LA County - Net Resources by Employment Income
+
+```js
+// Load CSV data for net resources calculation
+const rawNetResources = await FileAttachment("data/prd_calculations (1).csv").text();
+const netResourcesData = csvParse(rawNetResources, d => {
+  const income = +d.income || 0;
+  
+  // Add up benefits
+  const eitc = (+d["value.eitc.fed"] || 0) + (+d["value.eitc.state"] || 0);
+  const benefits = 
+    (+d["value.snap"] || 0) + 
+    (+d["value.medicaid.child"] || 0) + 
+    (+d["value.aca"] || 0) + 
+    eitc;
+  
+  // Add up taxes
+  const taxes = 
+    (+d["tax.income.fed"] || 0) + 
+    (+d["tax.income.state"] || 0) + 
+    (+d["tax.FICA"] || 0);
+  
+  // Expenses — FIXED: only one housing field used
+  const expenses = 
+    (+d["exp.rentormortgage"] || 0) +  // use this one, not exp.housing
+    (+d["exp.food"] || 0) +
+    (+d["exp.childcare"] || 0) +
+    (+d["exp.healthcare"] || 0) +
+    (+d["exp.misc"] || 0) +
+    (+d["exp.transportation"] || 0) +
+    (+d["exp.tech"] || 0) +
+    (+d["exp.schoolMeals"] || 0);
+  
+  // Net resources calculation
+  const netResources = income + benefits - taxes - expenses;
+  
+  return {
+    income,
+    netResources
+  };
+}).filter(d => d.income > 0);
+```
+
+```js
+function netResourcesChart({width}) {
+  return Plot.plot({
+    x: {
+      label: "Employment Income",
+      tickFormat: d => `$${d / 1000}K`,
+      fontSize: 12,
+      fontWeight: "bold"
+    },
+    y: {
+      label: "Net Resources",
+      grid: true,
+      tickFormat: d => `$${d / 1000}K`,
+      fontSize: 12,
+      fontWeight: "bold"
+    },
+    marks: [
+      Plot.line(netResourcesData, { 
+        x: "income", 
+        y: "netResources", 
+        stroke: "darkred", 
+        strokeWidth: 6,
+        tip: true
+      }),
+      // Optional dots for data points with tooltip
+      Plot.dot(netResourcesData, {
+        x: "income",
+        y: "netResources",
+        title: d => `Employment Income: $${d.income.toLocaleString()}\nNet Resources: $${Math.round(d.netResources).toLocaleString()}`,
+        fill: "darkred",
+        r: 3
+      }),
+
+      Plot.ruleY([0], { 
+        stroke: "black", 
+        strokeDasharray: "5,5", 
+        strokeWidth: 4
+      })
+    ],
+    width,
+    height: 350
+  });
+}
+```
+
+<div class="grid grid-cols-1">
+  <div class="card">
+    ${resize((width) => netResourcesChart({width}))}
+  </div>
+</div>
