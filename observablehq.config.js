@@ -9,8 +9,7 @@ export default {
   pages: [
       {name: "Page 1", path: "/page1"},
       {name: "Page 2", path: "/page2"},
-      {name: "Dashboard", path: "/example-dashboard"},
-      {name: "Report", path: "/example-report"}
+      {name: "Page 3", path: "/page3"}
   ],
 
   // Content to add to the head of the page, e.g. for a favicon:
