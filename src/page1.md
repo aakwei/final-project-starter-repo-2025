@@ -2,9 +2,9 @@
 title: page 1
 ---
 
-# 📊 The "Official" Story 
+# 📊 The Bigger Picture
 
-Before we can understand the true depth of America's urban livability crisis, we must first examine what the official statistics tell us. This dashboard presents the baseline facts as reported by government sources and official economic indicators: federal and state minimum wage data, official cost-of-living statistics, and the numbers that policymakers and official sources cite when discussing wages and living costs across America's largest cities. Here, we establish the foundation of the "official story"—the data that shapes public policy debates and forms the starting point for understanding the gap between what workers earn and what they need to survive. These visualizations reveal the surface-level picture that will be deconstructed in the dashboards that follow, showing us not just what the numbers say, but setting the stage for understanding why they often fail to capture the full reality of working-class life in urban America.
+This dashboard examines the **macroeconomic** factors that shape America's urban livability crisis. We begin by analyzing how minimum wage policies have evolved at both the federal and state levels from 2000 to 2024, revealing the stark differences between state initiatives and federal stagnation. Next, we compare typical salaries across 22 major occupational categories to the living wage requirements in three of America's most expensive cities—Washington D.C., Los Angeles, and New York City—demonstrating how essential service jobs consistently fail to provide adequate compensation for families. Finally, we explore the critical factors that official poverty measurements ignore, exposing how safety net programs lift millions out of poverty while hidden costs push millions more into economic hardship. Together, these visualizations establish the foundation for understanding the structural gaps between what workers earn and what they need to survive in urban America.
 
 ## Minimum Wage Analysis
 
@@ -43,14 +43,18 @@ Before we can understand the true depth of America's urban livability crisis, we
 </script>
 </div>
 
-<br><br>
-This visualization tracks the evolution of minimum wage policies across all 50 states and U.S. territories over the past two decades, comparing state-level minimum wages against the federal baseline. The data reveals a clear upward trajectory: both federal and state minimum wages have steadily increased since 2000, with the federal minimum wage rising from $5.15 to $7.25 per hour, while many states have implemented even more aggressive increases. Notably, over half of all states now maintain minimum wage rates that exceed the federal standard—a trend that has accelerated in recent years. On the surface, these numbers tell a story of progress and improved worker welfare, suggesting that policymakers are recognizing the need to ensure workers can earn a living wage. But are they? While these official statistics show wages rising, they tell us nothing about whether these increases have kept pace with the actual cost of living in America's urban centers. The numbers look promising in isolation, but they represent only one side of the equation—what workers earn, not what they need to survive.
 
+**Minimum Wage of Each State/Territory vs Federal Minimum Wage (2000-2024)**
 
+To begin our presentation, we decided to examine the minimum wage. The minimum wage is the lowest hourly rate employers must pay their employees, which was introduced in 1938 with the Fair Labor Standards Act (FLSA). As the cost of simple things such as food and housing increases over time, we wanted to understand how the federal minimum wage and state minimum wages have changed over time. We limited our scope to data collected from 2000 to 2024. We used an area line graph with two lines to show how the minimum wage in the states changed and compared it to the federal minimum wage. The blue line represents the state's minimum wage and the grey line represents the federal minimum wage. There is a filter that allows you to see which state you want to look at and compare to another state. This visualization was made in order to highlight how the federal government has struggled to make needed changes to the minimum wage.
+
+<br></br>
 
 ## Occupational Wage Analysis
 
-We seek to visualize how typical salaries across major occupational categories compare to the living wage, poverty line, and minimum wage in three of the most economically significant and high-cost U.S. regions: Washington D.C., New York City, and Los Angeles. These urban centers are home to millions of workers, set trends for labor and policy, and are often used as testbeds for wage reforms. By focusing on households with 2 adults (1 working) and 2 children, we highlight how even relatively high-paying jobs can fall short of covering basic living costs—raising critical questions about wage adequacy, cost of living, and economic justice. All data in this section are based on the MIT living wage index, accessed from https://livingwage.mit.edu/
+**Living Wage vs Salaries (2 Adults, 2 Children) - DC, LA, and NYC**
+
+This visualization compares typical salaries across 22 major occupational categories in Washington D.C., Los Angeles, and New York City to three wage thresholds: the living wage, poverty line, and minimum wage. Each dot represents an occupation's median annual salary, positioned along a horizontal axis from below the poverty line to above the living wage. The charts show that in all three cities, many essential occupations—including Healthcare Support, Food Preparation, and Personal Care—fall below the living wage needed to support a family of two adults and two children. Despite different living wage requirements (DC: $91,956; LA: $104,229; NYC: $113,859), the pattern is consistent: essential service jobs consistently fail to provide adequate compensation. Color coding highlights which jobs provide economic security (green) versus those that leave families struggling (red), challenging the assumption that employment alone guarantees financial stability in high-cost urban areas.
 
 ### DC Living Wage vs Salaries (2 Adults, 2 Children)
 
@@ -88,7 +92,13 @@ import {data as nycData, wageComparisonChart as nycWageComparisonChart} from "./
   </div>
 </div>
 
-## Additional Analysis
+<br></br>
+
+## Beyond Official Poverty Measures
+
+**Factors that Official Poverty Measurement Ignores and Change in Number of People in Supplemental Poverty After Including Each Element in 2024**
+
+This visualization breaks down the specific economic factors that the Official Poverty Measure ignores. The green bars on the top left represent the Safety Net Successes: programs like Refundable Tax Credits (EITC) and SNAP that lift millions of people out of poverty but get zero credit in the official count. Conversely, the red bars on the bottom right reveal the Hidden Burdens: costs like medical and work expenses that push over 15 million Americans into poverty who otherwise look financially stable. This data proves that to truly understand economic hardship, we must look beyond simple income and account for the real-world costs and benefits that shape a family's survival.
 
 <div style='max-width: 100%; margin: 0 auto;'>
   <div class='tableauPlaceholder' id='viz1765125265771' style='position: relative'>
@@ -126,3 +136,5 @@ import {data as nycData, wageComparisonChart as nycWageComparisonChart} from "./
     vizElement.parentNode.insertBefore(scriptElement, vizElement);
   </script>
 </div>
+
+These visualizations reveal that the macroeconomic picture of America's urban livability crisis is far more complex than official statistics suggest. While minimum wages have increased at the state level, federal stagnation and the persistent gap between wages and living costs demonstrate that policy responses have been insufficient. The reality that essential service jobs fail to meet living wage requirements, combined with the hidden factors that official poverty measures ignore, establishes a clear foundation for understanding why working-class families struggle to survive in America's most expensive cities.

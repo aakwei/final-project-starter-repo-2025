@@ -1,48 +1,32 @@
 ---
-title: The Urban Livability Gap Index
+title: The Urban Livability Index Gap Visualizing the Invisible Cost Burden on the United States' Working Class
 ---
 
-# The Urban Livability Gap Index: Visualizing America's Afforability Crisis
+# The Urban Livability Index Gap: Visualizing the Invisible Cost Burden on the United States' Working Class
 
-Across the United States, the working class has seen a growing disconnect between livable wages and the cost of necessities. National headlines cite figures such as "needing at least $160,000 to live decently in SF and NY," while the federal minimum wage (after taxes) remains severely below any reasonable measure of a livable wage. This crisis is compounded as inflation persists and real minimum wage values stagnate, making it essential to understand the structural gap between necessary living costs and working-class incomes.
+Across the United States, the **working class** has seen a growing disconnect between livable wages and the cost of necessities. This paper will also build on the assumption, and the perspective, that the working class has also seen a stark divide in the government's views and response to this income disparity issue.
+
+National headlines cite figures such as "needing at least $160,000 to live decently in San Francisco and New York City"—and that's only representing the elite percent of individuals. At the same time, the **federal minimum wage** (after taxes) remains severely below any reasonable, modern measure of a **livable wage**. Cost-of-living factors have long outgrown and evolved beyond the **poverty line** drawn in 1963. This crisis is compounded by inflation, companies shrinking offerings at similar prices (shrinkflation), and real minimum wage values stagnating. Yet there is a lack of government initiative to keep pace with the alarming indicators showing the working class struggling to live in America. This makes it essential to understand the structural gap between livable income and working-class cost-of-living calculations to propose remedial measures without significant economic side effects.
 
 This project quantifies and visualizes the **Urban Livability Gap**: the difference between a worker's take-home income (at minimum wage) and the essential cost of living in major cities, revealing not only where this gap is largest, but also why it persists—highlighting the consequential role of government policy and wage-setting at both state and federal levels.
 
 ## The Problem
 
-Gaps in urban livability are difficult to measure without clear, comparative data. How does the gap between minimum-wage income and the basic cost of living vary depending on local policies and economic conditions? Which individual contributors to the cost of living—food, transportation, healthcare, and more—impose the greatest burdens? Do federal and state minimum wages, after subtracting essential expenses, leave any room for disposable income or force workers into persistent deficits?
+Gaps in urban livability are challenging to measure without precise, comparative data. This paper will address three issues: how **macroeconomic factors** affect the livability gap, how **microeconomic expenses** further strain the cost of living, and how **recalculated standards** can reveal alarming truths about the average American's economic state.
 
-These questions shape not only personal financial health but broader social outcomes. By making the structural income-cost gap visible and tracing it to its main causes, we enable advocates, citizens, and policymakers alike to envision the real barriers working-class Americans face in large cities.
+First, this paper will seek to determine the gap between livable income and the real cost of living across macroeconomic buckets–the federal and state minimum wages, differences in rural vs densely populated areas, and significant **social determinants** (race, gender, geopolitical region)–to visualize more accurate statistics. A key question to analyze here is: How does this livability gap vary across state policies, occupational differences, and at large?
 
-## Our Approach
+Next, this paper will break down the individual contributors to an American's spending (costs of food, transportation, healthcare, and taxes) and identify which impose the most significant burdens (which will later be imperative to reform and awareness). The visualizations will walk through a compelling story of the breakdown of the cost of living and the alarming trends relative to real income.
 
-This dashboard transforms inaccessible, abstract economic data into powerful, relatable visual storytelling. Our analysis unfolds across three interconnected dashboards, each building upon the previous to reveal the full picture of urban livability in America:
+Lastly, this paper will break down various perspectives on a more accurate, modern measurement of the livability gap. We, as the writers, seek answers to a modern, economically sound standard of livability. We considered whether it would leave any room for **disposable income** and **financial independence**, or if it would continue to leave the working class in persistent deficits, shaping not only personal financial health but also broader social outcomes. We also hope to provide larger recommendations through compelling visualizations on reform for the working class.
 
-### Dashboard 1: 📊 The Official Story
-**What the statistics say.** This dashboard presents the baseline facts: federal and state minimum wage data, official cost-of-living statistics, and government-reported economic indicators. Here, we establish the foundation of what policymakers and official sources report about wages and living costs across America's largest cities.
 
-### Dashboard 2: The Hidden Reality
-**A deeper dive into the problem.** This dashboard reveals how official statistics often fail to account for the true cost of living. Through detailed cost breakdowns by category—housing, food, transportation, healthcare, and more—we expose the real financial burden workers face. This analysis shows which cities have the largest gaps and identifies the specific cost drivers that make urban living unaffordable for minimum-wage workers.
+## Stakeholders
 
-### Dashboard 3: The Path Forward
-**Data-driven conclusions and calls to action.** The final dashboard synthesizes our findings to support clear conclusions about where intervention is most needed. By visualizing the Urban Livability Gap Index, disposable income after essentials, and hours of work needed to afford basic necessities, we provide actionable insights for labor advocates, policymakers, and young adults making critical life decisions about where to live and work.
+The primary audience for this project is **labor advocates** (and adjacent non-profit organizations) and **policymakers** alike. The project is broken down in a digestible manner, with minimal information for the public viewer to understand, while incorporating elements that provide a complex story for economically educated viewers.
 
-## Our Purpose
-
-This effort is not just about illustrating hardship, but about providing clear, actionable reasons behind the severity of these gaps, with the intention of driving targeted intervention and reform. Our goal is to empower labor advocates, policymakers, and young adults with data that justifies advocacy, creates public pressure, and guides future legislative, state, and federal responses to urban inequality.
-
-The alignment between data analysis, narrative, and advocacy is central: each visualization is designed to highlight systemic inequities, uncover root causes, and directly inform policies that could help close the gap.
-
-## For Our Stakeholders
-
-**Labor advocates and non-profit organizations** supporting low-income workers will find compelling, data-driven arguments to support policy and wage campaigns.
-
-**Young adults**—especially college students and early-career professionals—facing key life decisions about where to live and work can use these visualizations to make informed choices.
-
-**Policymakers** at state and federal levels—as the ultimate arbiters of wage policies, housing regulations, and social programs—will find the evidence and arguments required to justify legislative action, design more equitable social policy, and address systemic urban inequality at scale.
-
-By making the Urban Livability Gap tangible, accessible, and specific to their jurisdictions, we ensure this project not only diagnoses problems but catalyzes solutions at every level.
+Largely, and unfortunately optimistically, this project aims to get in front of **legislative institutions** to bring about reform on a topic that will largely shape the future of America. By making the Urban Livability Gap tangible, accessible, and specific to their jurisdictions, we give these decision-makers the evidence and arguments needed to justify legislative action, design more equitable **social policy**, and address **systemic urban inequality** at scale. This intentional alignment ensures our project not only diagnoses problems but also catalyzes solutions at every level, leaving very little room for speculation or doubt around the story this paper tells.
 
 ---
 
-*Explore the dashboards above to begin your journey into understanding America's urban livability crisis.*
+*Explore the dashboards to begin your journey into understanding America's livability crisis.*

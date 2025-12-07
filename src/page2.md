@@ -442,17 +442,3 @@ function bigMacPriceChart({width}) {
     ${resize((width) => bigMacPriceChart({width}))}
   </div>
 </div>
-
-
-
-## Big Mac (Meal) Price Comparison Across Cities
-
-```js
-import {bigMacData, bigMacChart} from "./components/bigMac.js";
-```
-
-<div class="grid grid-cols-1">
-  <div class="card">
-    ${resize((width) => bigMacChart({width}))}
-  </div>
-</div>
