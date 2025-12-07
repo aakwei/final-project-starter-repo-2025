@@ -335,3 +335,124 @@ function healthcarePriceChart({width}) {
     ${resize((width) => healthcarePriceChart({width}))}
   </div>
 </div>
+
+
+## Big Mac Price Versus CPI Adjusted Price
+
+```js
+import {csvParse} from "d3-dsv";
+
+// Load Big Mac price data
+const rawBigMac = await FileAttachment("data/bigmacindex.csv").text();
+const bigMacData = csvParse(rawBigMac, d => ({
+  year: +d.Year,
+  nominalPrice: +d["Nominal Big Mac Price (USD)"]
+})).filter(d => d.nominalPrice && d.year >= 1986 && d.year <= 2016);
+
+// Load CPI data (CUSR0000SAS4 - general CPI component)
+const rawCPI = await FileAttachment("data/CUSR0000SAS4.csv").text();
+const cpiData = csvParse(rawCPI, d => ({
+  date: new Date(d.observation_date),
+  cpi: +d.CUSR0000SAS4
+})).filter(d => d.cpi && d.date.getFullYear() >= 1986 && d.date.getFullYear() <= 2016);
+
+// Get CPI for January of each year
+const cpiByYear = {};
+for (const d of cpiData) {
+  const year = d.date.getFullYear();
+  const month = d.date.getMonth();
+  if (month === 0) { // January
+    cpiByYear[year] = d.cpi;
+  }
+}
+
+// Get base CPI (1986)
+const baseCPI = cpiByYear[1986] || 1;
+
+// Calculate CPI-adjusted prices
+const bigMacWithCPI = bigMacData.map(d => {
+  const yearCPI = cpiByYear[d.year] || baseCPI;
+  const cpiAdjustedPrice = (d.nominalPrice / yearCPI) * baseCPI;
+  return {
+    year: d.year,
+    nominalPrice: d.nominalPrice,
+    cpiAdjustedPrice: cpiAdjustedPrice
+  };
+});
+```
+
+```js
+function bigMacPriceChart({width}) {
+  // Prepare data for plotting
+  const nominalData = bigMacWithCPI.map(d => ({
+    year: new Date(d.year, 0, 1),
+    price: d.nominalPrice,
+    type: "Nominal Big Mac Price"
+  }));
+  
+  const cpiAdjustedData = bigMacWithCPI.map(d => ({
+    year: new Date(d.year, 0, 1),
+    price: d.cpiAdjustedPrice,
+    type: "CPI Adjusted Price"
+  }));
+  
+  const combinedData = [...nominalData, ...cpiAdjustedData];
+  
+  return Plot.plot({
+    title: "Big Mac Price Versus CPI Adjusted Price",
+    x: {
+      label: "Year",
+      domain: [new Date(1986, 0, 1), new Date(2016, 11, 31)],
+      tickRotate: -45
+    },
+    y: {
+      label: "Price ($)",
+      grid: true,
+      domain: [0, 6]
+    },
+    color: {
+      domain: ["Nominal Big Mac Price", "CPI Adjusted Price"],
+      range: ["#1976D2", "#2E7D32"],
+      legend: true
+    },
+    marks: [
+      Plot.line(nominalData, {
+        x: "year",
+        y: "price",
+        stroke: "#1976D2",
+        strokeWidth: 2,
+        tip: true
+      }),
+      Plot.line(cpiAdjustedData, {
+        x: "year",
+        y: "price",
+        stroke: "#2E7D32",
+        strokeWidth: 2,
+        tip: true
+      })
+    ],
+    width,
+    height: 400
+  });
+}
+```
+
+<div class="grid grid-cols-1">
+  <div class="card">
+    ${resize((width) => bigMacPriceChart({width}))}
+  </div>
+</div>
+
+
+
+## Big Mac (Meal) Price Comparison Across Cities
+
+```js
+import {bigMacData, bigMacChart} from "./components/bigMac.js";
+```
+
+<div class="grid grid-cols-1">
+  <div class="card">
+    ${resize((width) => bigMacChart({width}))}
+  </div>
+</div>
