@@ -39,30 +39,30 @@ export function wageComparisonChart(data, {width}) {
   
   const legendData = [
     {label: "Living Wage", color: "#2E7D32", occupation: topOccupations[0]},
-    {label: "Poverty Line", color: "#F57C00", occupation: topOccupations[1]},
-    {label: "Minimum Wage", color: "#C62828", occupation: topOccupations[2]}
+    {label: "Poverty Line", color: "#C62828", occupation: topOccupations[1]},
+    {label: "Minimum Wage", color: "#F57C00", occupation: topOccupations[2]}
   ];
   
   // Ensure x-axis includes all reference lines
-  const xMin = Math.min(minSalary, povertyWage, minimumWage) * 0.9;
+  const xMin = Math.min(minSalary, povertyWage, minimumWage, livingWage) * 0.7;
   const xMax = Math.max(maxSalary, livingWage) * 1.05;
   
   return Plot.plot({
-    x: {label: "Annual Income ($)", grid: true, domain: [xMin, xMax]},
+    x: {label: "Annual Income ($)", grid: false, domain: [xMin, xMax]},
     y: {label: "Occupation", domain: data.map(d => d.occupation)},
     marginLeft: 180,
     marginRight: 40,
     marginTop: 60,
     marginBottom: 40,
     marks: [
-      Plot.ruleX([livingWage], {stroke: "#2E7D32", strokeDasharray: "4", strokeWidth: 2}),
-      Plot.ruleX([povertyWage], {stroke: "#F57C00", strokeDasharray: "4", strokeWidth: 2}),
-      Plot.ruleX([minimumWage], {stroke: "#C62828", strokeDasharray: "4", strokeWidth: 2}),
+      Plot.ruleX([livingWage], {stroke: "#2E7D32", strokeDasharray: "8,4", strokeWidth: 2}),
+      Plot.ruleX([povertyWage], {stroke: "#C62828", strokeDasharray: "2,2", strokeWidth: 2}),
+      Plot.ruleX([minimumWage], {stroke: "#F57C00", strokeDasharray: "6,3", strokeWidth: 2}),
       Plot.dot(data, {
         x: "salary",
         y: "occupation",
-        stroke: "blue",
-        fill: "blue",
+        stroke: (d) => d.salary < livingWage ? "#C62828" : "#2E7D32",
+        fill: (d) => d.salary < livingWage ? "#C62828" : "#2E7D32",
         r: 4,
         tip: true
       }),
