@@ -74,10 +74,10 @@ export function processNetResourcesData(raw) {
 }
 
 export function stackedBarChart(stackedData, {width}) {
-  // Calculate max income and create ticks at 10k intervals
+  // Calculate max income and create ticks at 20k intervals
   const maxIncome = Math.max(...stackedData.map(d => d.income));
   const xTicks = [];
-  for (let i = 0; i <= maxIncome; i += 10000) {
+  for (let i = 0; i <= maxIncome; i += 20000) {
     xTicks.push(i);
   }
   
@@ -117,7 +117,7 @@ export function stackedBarChart(stackedData, {width}) {
       })
     ],
     width,
-    height: 350
+    height: 250
   });
 }
 
@@ -160,6 +160,6 @@ export function netResourcesChart(netResourcesData, {width}) {
       })
     ],
     width,
-    height: 350
+    height: 250
   });
 }

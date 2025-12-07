@@ -9,7 +9,7 @@ export default {
   pages: [
       {name: "The Bigger Picture", path: "/page1"},
       {name: "The Income Equation", path: "/page2"},
-      {name: "So What, or Do What", path: "/page3"}
+      {name: "So What Now?", path: "/page3"}
   ],
 
   // Content to add to the head of the page, e.g. for a favicon:
