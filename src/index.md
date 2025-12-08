@@ -4,6 +4,8 @@ title: The Urban Livability Index Gap Visualizing the Invisible Cost Burden on t
 
 # The Urban Livability Index Gap: Visualizing the Invisible Cost Burden on the United States' Working Class
 
+## Andrews, Bo, Charlie, Joon
+
 Across the United States, the **working class** has seen a growing disconnect between livable wages and the cost of necessities. This paper will also build on the assumption, and the perspective, that the working class has also seen a stark divide in the government's views and response to this income disparity issue.
 
 National headlines cite figures such as "needing at least $160,000 to live decently in San Francisco and New York City"—and that's only representing the elite percent of individuals. At the same time, the **federal minimum wage** (after taxes) remains severely below any reasonable, modern measure of a **livable wage**. Cost-of-living factors have long outgrown and evolved beyond the **poverty line** drawn in 1963. This crisis is compounded by inflation, companies shrinking offerings at similar prices (shrinkflation), and real minimum wage values stagnating. Yet there is a lack of government initiative to keep pace with the alarming indicators showing the working class struggling to live in America. This makes it essential to understand the structural gap between livable income and working-class cost-of-living calculations to propose remedial measures without significant economic side effects.
